@@ -21,3 +21,12 @@ def user_logout(request):
     # request.user.auth_token.delete()
     Token.objects.filter(user=request.user).delete()
     return Response("log out success.")
+
+@api_view(['GET'])
+def current_user(request):
+    user=request.user
+    return Response({
+        "username":user.username,
+        "email":user.email,
+        "role":"admin" if user.is_staff else "user"
+    })

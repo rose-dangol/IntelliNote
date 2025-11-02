@@ -1,0 +1,281 @@
+
+        @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+        
+        body {
+          margin: 0;
+          padding: 0;
+          background-color: #618b9e;
+          font-family: 'Indie Flower', cursive, sans-serif;
+        }
+
+        .canvas {
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .notepad {
+          position: relative;
+          width: 200px;
+          height: 250px;
+          perspective: 1000px;
+          box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
+        }
+
+        .notepad .cover,
+        .notepad .page {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+        }
+
+        .notepad .cover {
+          background: linear-gradient(to right, #24374a 10%, #33495f 10%);
+          transform-origin: left center;
+          transition: transform 1.5s ease-in-out;
+          z-index: 20;
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .notepad.opened .cover {
+          transform: rotateY(-150deg);
+        }
+
+        .notepad .cover .title {
+          width: 40%;
+          height: 20%;
+          background-color: #455d75;
+          margin-bottom: 20px;
+          border-radius: 4px;
+        }
+
+        .notepad .cover .subtitle {
+          width: 34%;
+          height: 5%;
+          background-color: #455d75;
+          border-radius: 2px;
+        }
+
+        .notepad .cover .get-started-btn {
+          position: absolute;
+          bottom: 30px;
+          background-color: #e67e22;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 5px;
+          cursor: pointer;
+          font-family: 'Indie Flower', cursive, sans-serif;
+          font-size: 14px;
+          transition: background-color 0.3s;
+          z-index: 21;
+        }
+
+        .notepad .cover .get-started-btn:hover {
+          background-color: #d35400;
+        }
+
+        .notepad.opened .cover .get-started-btn {
+          display: none;
+        }
+
+        .notepad .page {
+          background: #eee;
+          border-right: 1px solid #ccc;
+          box-sizing: border-box;
+        }
+
+        .notepad .page:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 5%;
+          width: 90%;
+          height: 100%;
+          background: linear-gradient(
+            #eee 0%, #eee 10%, 
+            #dfdfdf 10%, #dfdfdf 11%, 
+            #eee 11%, #eee 20%, 
+            #dfdfdf 20%, #dfdfdf 21%, 
+            #eee 21%, #eee 30%, 
+            #dfdfdf 30%, #dfdfdf 31%, 
+            #eee 31%, #eee 40%, 
+            #dfdfdf 40%, #dfdfdf 41%, 
+            #eee 41%, #eee 50%, 
+            #dfdfdf 50%, #dfdfdf 51%, 
+            #eee 51%, #eee 60%, 
+            #dfdfdf 60%, #dfdfdf 61%, 
+            #eee 61%, #eee 70%, 
+            #dfdfdf 70%, #dfdfdf 71%, 
+            #eee 71%, #eee 80%, 
+            #dfdfdf 80%, #dfdfdf 81%, 
+            #eee 81%, #eee 90%, 
+            #dfdfdf 90%, #dfdfdf 91%, 
+            #eee 91%, #eee 100%
+          );
+        }
+
+        .page.one {
+          z-index: 4;
+        }
+
+        .page.two {
+          z-index: 3;
+        }
+
+        .page.three {
+          z-index: 2;
+        }
+
+        .page.four {
+          z-index: 1;
+          border-right-width: 0;
+        }
+
+        .page:before {
+          content: '';
+          position: absolute;
+          right: -7%;
+          width: 7%;
+          height: 10%;
+          border-radius: 0 0 20% 0;
+        }
+
+        .page.one:before {
+          top: 10%;
+          background-color: #cc881b;
+        }
+
+        .page.two:before {
+          top: 20%;
+          background-color: #49a84d;
+        }
+
+        .page.three:before {
+          top: 30%;
+          background-color: #bf351f;
+        }
+
+        .page.four:before {
+          top: 40%;
+          background-color: #d68384;
+        }
+
+        .login-form {
+          position: relative;
+          z-index: 10;
+          padding: 30px 20px;
+          opacity: 0;
+          transition: opacity 0.5s ease-in-out 1s;
+          pointer-events: none;
+        }
+
+        .notepad.opened .login-form {
+          opacity: 1;
+          pointer-events: all;
+        }
+
+        .login-form h2 {
+          margin: 0 0 20px 0;
+          font-size: 24px;
+          color: #33495f;
+        }
+
+        .login-form input {
+          width: calc(100% - 20px);
+          padding: 8px 10px;
+          margin-bottom: 12px;
+          border: none;
+          background: transparent;
+          border-bottom: 2px solid #33495f;
+          font-family: 'Indie Flower', cursive, sans-serif;
+          font-size: 14px;
+          color: #333;
+          outline: none;
+        }
+
+        .login-form input::placeholder {
+          color: #999;
+        }
+
+        .login-form button {
+          width: 100%;
+          padding: 10px;
+          background-color: #e67e22;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-family: 'Indie Flower', cursive, sans-serif;
+          font-size: 14px;
+          margin-top: 10px;
+          transition: background-color 0.3s;
+        }
+
+        .login-form button:hover {
+          background-color: #d35400;
+        }
+
+        .pencil {
+          position: absolute;
+          bottom: 5%;
+          right: -5%;
+          width: 15%;
+          height: 35%;
+          border-radius: 10% 10% 0 0;
+          background: linear-gradient(#dd574b 20%, #bbb 20%, #bbb 30%, #e67e22 30%, #e67e22 72%, #ffe0a7 72%, #ffe0a7 85%, transparent 85%);
+          overflow: hidden;
+          transition: opacity 0.5s;
+        }
+
+        .notepad.opened .pencil {
+          opacity: 0;
+        }
+
+        .pencil:before {
+          content: '';
+          position: absolute;
+          bottom: -10%;
+          left: 0;
+          border-top: 12px solid #333;
+          border-left: 19px solid transparent;
+          border-right: 19px solid transparent;
+          border-bottom: 10px solid transparent;
+        }
+
+        .pencil:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 50%;
+          height: 85%;
+          background-color: rgba(0, 0, 0, .2);
+          border-top-right-radius: 20%;
+        }
+
+        .pencil .edge:before {
+          content: '';
+          position: absolute;
+          bottom: 14%;
+          left: 0;
+          border: 9px solid transparent;
+          border-bottom: 4px solid #333;
+        }
+
+        .pencil .edge:after {
+          content: '';
+          position: absolute;
+          bottom: 14%;
+          right: 0;
+          border: 9px solid transparent;
+          border-bottom: 4px solid #333;
+          z-index: 2;
+        }

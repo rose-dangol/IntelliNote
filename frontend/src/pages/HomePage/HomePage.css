@@ -1,0 +1,93 @@
+.home-container {
+  /* background-color: #d2f9f7; */
+  background-image: url('images/background.jpg');
+  width: 100%;
+  height: 89.9vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.hero-section {
+  /* background-color: red; */
+  margin-top: 25px;
+  padding: 20px;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  text-align: start;
+  width: 950px;
+}
+.hero-heading {
+  margin-top: 55px;
+  font-family: "Barriecito", system-ui;
+  font-weight: normal;
+  font-size: 3.9rem;
+  color: #5a6dc6;
+  line-height: 1.2;
+  letter-spacing: 2px;
+}
+.hero-subtitle {
+  font-family: "Bitter", serif;
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+}
+
+.login-signup {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+.home-signup, .home-login {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px black solid;
+  box-shadow: 2px 2px 1px black;
+  text-decoration: none;
+  text-align: center;
+}
+.home-signup {
+  background-color: #d6fe63;
+  width: 200px;
+}
+.home-login {
+  background-color: #a2fcfd;
+  width: 100px;
+}
+
+.features-container {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    max-width: 940px;
+    margin: 0 auto;
+    align-content: center;
+    justify-content: flex-start;
+}
+.feature-box{
+  border-radius: 15px;
+  padding: 30px;
+  border: 0.7px solid black;
+  color: white;
+  text-align: center;
+  background-color: #FF695F;
+  min-width: 150px;
+}
+.feature-box h2 {
+  margin-bottom: 15px;
+  color: #b6d9d8;
+  font-size: 30px;
+}
+
+.feature-box p {
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 450;
+}

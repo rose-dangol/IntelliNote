@@ -1,0 +1,181 @@
+.userProfile-container {
+    display: flex;
+    min-height: 100vh;
+    /* background-color: #f5f6f8; */
+}
+.userProfile-center {
+    flex: 1;
+    margin-left: 250px;
+    /* padding: 2rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile-card {
+    /* background: #ffffff; */
+    /* border-radius: 12px; */
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); */
+    /* padding: 2rem; */
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-card-heading {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #0e0f10;
+    /* padding-bottom: 1rem; */
+    font-family: "Quantico", sans-serif;
+}
+
+.profile-info {
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    font-family: 'IM Fell DW Pica', serif;
+}
+
+.profile-picture-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    object-fit: cover;
+    border: 3px solid #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-data {
+    flex: 1;
+}
+
+.profile-data h2 {
+    color: #2c3e50;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+}
+
+.profile-data p {
+    color: #5f6368;
+    margin: 0.25rem 0;
+}
+
+.profile-data .bio {
+    margin-top: 1rem;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+/* Form Styles */
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-family: 'Quantico', sans-serif;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    color: #2c3e50;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.75rem;
+    border: 1px solid #e0e4e8;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: "IM Fell DW Pica", serif;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
+}
+
+.file-input {
+    padding: 0.5rem 0 !important;
+    /* border: none !important; */
+
+}
+
+.save-button {
+    background-color: #F67227;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    /* margin-top: 1rem; */
+    align-self: flex-start;
+}
+
+.save-button:hover {
+    background-color: #357abd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-sidebar {
+        width: 200px;
+    }
+
+    .userProfile-center {
+        margin-left: 200px;
+        padding: 1rem;
+    }
+
+    .profile-picture-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-data {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .profile-sidebar {
+        width: 100%;
+        position: static;
+        height: auto;
+    }
+
+    .userProfile-container {
+        flex-direction: column;
+    }
+
+    .userProfile-center {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .profile-card {
+        padding: 1rem;
+    }
+}

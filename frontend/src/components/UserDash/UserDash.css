@@ -1,0 +1,96 @@
+.userDash{
+    background-color: #FBFAF9;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+    justify-content: space-between;
+    height: 97.2vh;
+    position: fixed;
+    width: 10%;
+    left:0;
+    padding: 1%;
+    border-right: 10px #ED5F72 solid;
+    border-right-style: double;
+}
+.top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+.logo img{
+    height: 70px;
+}
+.center{
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+/* .dash-links{
+    display: flex;
+    text-align: center;
+    justify-content:flex-start;
+    gap: .5rem;
+} */
+.icon{
+    padding:10px 8px 8px 8px;
+    border-radius: 5px;
+        background-color: red;
+}
+.icon:hover{
+    background-color: #EFECE7;
+}
+.dash-links{
+    font-size: 17px;
+    font-weight: 600;
+}
+.dash-links:hover{
+    cursor: pointer;
+    color: #EC5E71;
+}
+.Link{
+    text-decoration:none;
+    color: black;
+}
+.bottom{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.user-avatar {
+  background-color: rgb(195, 195, 221);
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;              
+  border: 1px solid black;
+  overflow: hidden;         
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      
+}
+.username-logout{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.username{
+    font-family: "Bitter", serif;
+}
+.logout-btn{
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    /* color: red; */
+    font-weight: 500;
+}
+.logout-btn:hover{
+    color: #EC5E71;
+    cursor: pointer;
+}

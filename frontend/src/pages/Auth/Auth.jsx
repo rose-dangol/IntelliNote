@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
-import { registerUser,loginUser } from "../../services/Auth";
+import NavbarComponent from "../../components/NavbarComponent/NavbarComponent";
+import { registerUser, loginUser, getUser } from "../../services/Auth";
 
 const Auth = () => {
   const [activeTab, setActiveTab] = useState("login");
   const navigate = useNavigate();
-
   const [registerFormData, setRegisterFormData] = useState({
     fullname: "",
     username: "",
@@ -35,24 +35,35 @@ const Auth = () => {
     setActiveTab("login");
   };
 
- const handleLogin = async(e)=>{
+  const handleLogin = async (e) => {
     e.preventDefault();
     // window.alert("Login hit")
-    console.log(loginFormData)
-    console.log("Login hit")
-    const tokenData = await loginUser(loginFormData)
-    if (tokenData.error){
-      console.log("data", tokenData)
+    console.log(loginFormData);
+    console.log("Login hit");
+    const tokenData = await loginUser(loginFormData);
+    console.log(tokenData)
+    if (tokenData.error) {
+      console.log("data", tokenData);
+    } else {
+      localStorage.setItem("authToken", tokenData?.token);
+      const user = await getUser(tokenData?.token)   
+      // console.log(user)   
+      localStorage.setItem("userRole", user.role);
+      localStorage.setItem("username", user.username);
+      if (user.role === "admin") navigate("/admin/users");
+      else navigate("/dashboard");
     }
-    else{
-      localStorage.setItem("authToken",tokenData?.token)
-      navigate('/');
-    }
-  }
+  };
+
 
   return (
     <div>
-      <div className={`auth-container ${activeTab === "login" ? "login" : "register"}`}>
+      <NavbarComponent />
+      <div
+        className={`auth-container ${
+          activeTab === "login" ? "login" : "register"
+        }`}
+      >
         <div className="auth-box">
           <div className="auth-tabs">
             <button
@@ -150,4 +161,4 @@ const Auth = () => {
   );
 };
 
-export default Auth
+export default Auth;

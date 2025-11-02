@@ -1,0 +1,24 @@
+.search-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    height: 7%;
+    background-color: #F67227;
+}
+.search-input {
+    width: 50%;
+    padding: 14px 16px;
+    border: 2px solid #ccc;
+    /* border-radius: 25px; */
+    font-size: 20px;
+    outline: none;
+    transition: border-color 0.3s;
+    height: 10px;
+    font-family: "IM Fell DW Pica", serif;
+    text-align: center;
+    background-color: #FFF
+}
+.search-input:focus {
+    border-color: #FF6B6B;
+}

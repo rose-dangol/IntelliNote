@@ -1,0 +1,93 @@
+.Navbar-container {
+  background-color: #f9f4ef;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 2rem;
+  border-bottom: 2px solid black;
+}
+.IntelliNote-Logo img {
+  height: 70px;
+  width: auto;
+}
+
+.Navbar-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  width: 250px;
+  text-align: center;
+}
+
+.animatedText {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #333;
+  font-family: "Bitter", serif;
+  width: 15ch;
+  animation: typing 3s steps(21, end) forwards, blink 0.7s step-end infinite;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 15ch;
+  }
+}
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.naavbar-dateTime {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
+  font-weight: bold;
+  font-family: "Bitter", serif;
+}
+.date {
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+  letter-spacing: .6px;
+}
+.time {
+  border: #c14959 1.3px solid;
+  padding: 10px;
+  line-height: 1;
+  letter-spacing: 2px;
+}
+.time:hover{
+  background-color: #c14959;
+  color: wheat;
+  cursor: pointer;
+}
+.navbar-option {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+.navbar-option:hover {
+  cursor: pointer;
+  color: #c14959;
+}
+.navbar-option Link {
+  text-decoration: none;
+}

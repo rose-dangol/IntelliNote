@@ -1,13 +1,15 @@
 .auth-container {
   min-height: calc(100vh - 72.9px);
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   padding: 40px 24px;
   background: linear-gradient(to bottom, #FED6C5, #F4CEDA, #EAC7EE);
+    /* background-image: url('images/background.jpg'); */
 }
 .auth-container.login{
   background: linear-gradient(to bottom, #FFE0B7, #FFDABF, #FCE3D6, #F9F3EE);
+    /* background-image: url('images/background.jpg'); */
 }
 .auth-box {
   /* background: white; */

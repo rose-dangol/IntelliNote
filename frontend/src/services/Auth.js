@@ -38,3 +38,14 @@ export const loginUser=async(loginFormData)=>{
         console.log(error)
     }
 }
+export const getUser = async(token)=>{
+    try{
+        const userRes = await fetch(base_url+"me/",{
+            headers:{Authorization: `Token ${token}`},
+        });
+        const user = await userRes.json();
+        return user
+    }catch(error){
+        console.log(error)
+    }
+}

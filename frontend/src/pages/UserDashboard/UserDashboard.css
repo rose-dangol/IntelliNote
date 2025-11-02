@@ -1,0 +1,152 @@
+.dashboard-container {
+  /* padding: 40px; */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  /* background-image: url("/images/background.jpg"); */
+  background-color: #FFFDF9;
+  height: 105vh;
+  display: flex;
+}
+.dashboard-center {
+  margin-left: 5%;
+  width: 100%;
+}
+.dashboard-titles {
+  margin: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  /* gap: 1rem; */
+  font-family: "Quantico", sans-serif;
+}
+.dashboard-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.heading-username{
+  color: #F67227;
+}
+.dashboard-subtext {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.stats-grid {
+  display: flex;
+  gap: 4rem;
+  margin-bottom: 50px;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 2.5rem;
+}
+.card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 25%;
+  transition: transform 0.2s ease;
+  border-left: 4px solid #FF6B6B;
+  border-right: 4px solid #FF6B6B;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Quantico", sans-serif;
+}
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.card-title {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 8px;
+}
+.card-value {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ED5F72;
+}
+.card-icon{
+  background-color: #F67227;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.recent-notes{
+  display: flex;
+  flex-direction: column;
+  margin-left: 1.8rem;
+  font-family: "Quantico", sans-serif;
+}
+.recent-heading {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+.title-all{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.notes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.note-card {
+  background: #fff;
+  border-left: 4px solid #FF6B6B;
+  /* border-right: 4px solid #FF6B6B; */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 20rem;
+  height: 8rem;
+}
+
+.note-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.note-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.note-snippet {
+  color: #555;
+  font-size: 0.95rem;
+  height: 40px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  font-family: "IM Fell DW Pica", serif;
+}
+.note-date {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.view-all {
+  text-align: center;
+  margin-right: 3rem;
+}
+.view-all-btn {
+  color: #F67227 ;
+  /* padding: 12px 25px; */
+  padding-bottom: 10px;
+  background-color: transparent;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
