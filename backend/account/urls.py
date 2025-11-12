@@ -10,4 +10,6 @@ urlpatterns = [
     path('register/',user_register_view,name='register'),
     path('logout/',user_logout,name='logout'),
     path('me/',current_user,name='current_user'),
+    path('users/',list_users,name='list_user'),
+    path('profile/', edit_profile, name='edit_profile'),
 ]

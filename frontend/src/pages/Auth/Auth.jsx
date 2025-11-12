@@ -44,12 +44,14 @@ const Auth = () => {
     console.log(tokenData)
     if (tokenData.error) {
       console.log("data", tokenData);
-    } else {
+    } 
+    else {
       localStorage.setItem("authToken", tokenData?.token);
       const user = await getUser(tokenData?.token)   
       // console.log(user)   
-      localStorage.setItem("userRole", user.role);
-      localStorage.setItem("username", user.username);
+      // localStorage.setItem("userRole", user.role);
+      localStorage.setItem("userData",JSON.stringify(user));
+      // localStorage.setItem("username", user.username);
       if (user.role === "admin") navigate("/admin/users");
       else navigate("/dashboard");
     }

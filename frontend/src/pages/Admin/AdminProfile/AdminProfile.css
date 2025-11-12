@@ -75,7 +75,7 @@
 }
 
 .admin-badge {
-  background: #007bff;
+  background: #F67227;
   color: white;
   font-size: 0.75rem;
   padding: 2px 6px;
@@ -115,14 +115,14 @@
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: #007bff;
+  border-color: F67227;
 }
 
 .save-btn {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #007bff;
+  background: #F67227;
   color: white;
   border: none;
   padding: 10px 16px;
@@ -133,5 +133,5 @@
 }
 
 .save-btn:hover {
-  background: #005fcc;
+  background: #fd9153;
 }

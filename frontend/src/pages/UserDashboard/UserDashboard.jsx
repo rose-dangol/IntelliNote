@@ -10,8 +10,8 @@ import { getUser } from "../../services/Auth";
 
 const UserDashboard = () => {
   const token = localStorage.getItem("authToken")
-  const activeUser=localStorage.getItem('username')
-
+  const activeUser=JSON.parse(localStorage.getItem('userData'))
+  console.log(activeUser)
   const user = {
     // name: "Rose Dangol",
     stats: {
@@ -71,7 +71,7 @@ const UserDashboard = () => {
         <SearchComponent/>
         <div className="dashboard-titles">
           <h2 className="dashboard-heading">
-            Welcome back, <span className="heading-username">{activeUser}</span>
+            Welcome back, <span className="heading-username">{activeUser?.username}</span>
           </h2>
           <p className="dashboard-subtext">What will you discover today?</p>
         </div>
@@ -107,7 +107,7 @@ const UserDashboard = () => {
           <div className="card">
             <div className="card-detail">
               <h4 className="card-title">Joined On</h4>
-              <p className="card-value">{user.stats.created}</p>
+              <p className="card-value">{activeUser?.date_joined}</p>
             </div>
             <div className="card-icon">
               <BadgePlus size={45} color="#fff"/>

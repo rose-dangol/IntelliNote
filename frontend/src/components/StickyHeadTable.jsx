@@ -33,39 +33,10 @@ const columns = [
   },
 ];
 
-// Dummy data
-const rows = [
-  {
-    id: 1,
-    username: "rose123",
-    email: "rose@example.com",
-    savedNotes: 12,
-    status: "Active",
-  },
-  {
-    id: 2,
-    username: "john_doe",
-    email: "john@example.com",
-    savedNotes: 8,
-    status: "Inactive",
-  },
-  {
-    id: 3,
-    username: "emma_smith",
-    email: "emma@example.com",
-    savedNotes: 25,
-    status: "Active",
-  },
-  {
-    id: 4,
-    username: "michael_77",
-    email: "michael@example.com",
-    savedNotes: 5,
-    status: "Pending",
-  },
-];
+export default function StickyHeadTable(props) {
+  const { users } = props;
+  // console.log(users)
 
-export default function StickyHeadTable() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -84,54 +55,58 @@ export default function StickyHeadTable() {
         <Table stickyHeader aria-label="user table">
           <TableHead>
             <TableRow>
+              <TableCell style={{ minWidth: 150, fontWeight: "bold" }}>
+                Username
+              </TableCell>
+              <TableCell style={{ minWidth: 200, fontWeight: "bold" }}>
+                Email
+              </TableCell>
+              <TableCell style={{ minWidth: 150, fontWeight: "bold" }}>
+                Saved Notes
+              </TableCell>
+              <TableCell style={{ minWidth: 120, fontWeight: "bold" }}>
+                Status
+              </TableCell>
+              <TableCell style={{ minWidth: 150, fontWeight: "bold" }}>
+                Action
+              </TableCell>
+            </TableRow>
+            {/* <TableRow>
               {columns.map((column) => (
                 <TableCell
                   key={column.id}
                   align={column.align}
-                  style={{ minWidth: column.minWidth, fontWeight: "bold" }}
+                  
                 >
                   {column.label}
                 </TableCell>
               ))}
-            </TableRow>
+            </TableRow> */}
           </TableHead>
 
           <TableBody>
-            {rows
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => (
-                <TableRow hover key={row.id}>
-                  <TableCell>{row.username}</TableCell>
-                  <TableCell>{row.email}</TableCell>
-                  <TableCell align="center">{row.savedNotes}</TableCell>
-                  <TableCell align="center">{row.status}</TableCell>
-                  <TableCell align="center">
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      size="small"
-                      sx={{ mr: 1 }}
-                    >
-                      View
-                    </Button>
-                    <Button
-                      variant="outlined"
-                      color="error"
-                      size="small"
-                    >
-                      Delete
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              ))}
+            {users.map((user) => (
+              <TableRow key={user.id}>
+                <TableCell>{user.username}</TableCell>
+                <TableCell>{user.email}</TableCell>
+                <TableCell>{user.savedNotes || 0}</TableCell>
+                <TableCell>{user.is_active ? "Active" : "Inactive"}</TableCell>
+                <TableCell>
+                  <Button variant="contained" size="small">
+                    Edit
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
+          <TableRow></TableRow>
         </Table>
       </TableContainer>
 
       <TablePagination
         rowsPerPageOptions={[5, 10, 25]}
         component="div"
-        count={rows.length}
+        count={users.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

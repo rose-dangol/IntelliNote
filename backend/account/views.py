@@ -1,9 +1,13 @@
-from rest_framework import status
+from django.contrib.auth.models import User
+from django.core.serializers import serialize
+from rest_framework import status, viewsets
 from rest_framework.authtoken.models import Token
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
 from rest_framework.response import Response
 
-from account.serializers import UserRegisterSerializer
+from account.models import Profile
+from account.serializers import UserRegisterSerializer, UserSerializer, ProfileSerializer
 
 
 @api_view(['POST'])
@@ -24,9 +28,27 @@ def user_logout(request):
 
 @api_view(['GET'])
 def current_user(request):
-    user=request.user
-    return Response({
-        "username":user.username,
-        "email":user.email,
-        "role":"admin" if user.is_staff else "user"
-    })
+    serializer = UserSerializer(request.user)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def list_users(request):
+    print(request.user)
+    # if not request.user.is_staff:
+    #     return Response({"detail":"Not authorized"}, status=403)
+    users = User.objects.all()
+    serializer = UserSerializer(users,many=True)
+             # .values("id", "username", "email", "is_staff", "is_active"))
+    return Response(serializer.data)
+
+@api_view(['PATCH'])
+@permission_classes([IsAuthenticated])
+def edit_profile(request):
+    profile = request.user.profile
+    serializer=ProfileSerializer(profile, data=request.data, partial=True)
+    if serializer.is_valid():
+        serializer.save()
+        user_serializer = UserSerializer(request.user, context={'request':request})
+        return Response(user_serializer)
+    return Response(serializer.errors)

@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-LOCAL_APPS = ['account','notes']
+LOCAL_APPS = ['account','notes','search','knowledge']
 THIRD_PARTY_APPS= ['rest_framework','corsheaders','rest_framework.authtoken',]
 
 INSTALLED_APPS = [
@@ -137,3 +137,5 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ]}
+
+SERPER_API_KEY = "8d29088e92607f491e601b92dd5c6ddc0b402611"

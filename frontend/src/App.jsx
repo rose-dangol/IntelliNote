@@ -19,6 +19,7 @@ import SavedNotes from './pages/SavedNotes/SavedNotes';
 import AdminManageUsers from './pages/Admin/AdminManageUsers/AdminManageUsers';
 import AdminAddData from './pages/Admin/AddData/AdminAddData';
 import AdminProfile from './pages/Admin/AdminProfile/AdminProfile';
+import KnowledgeHub from './pages/KnowledgeHub/KnowledgeHub';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -28,8 +29,8 @@ function App() {
     <Routes>
       <Route path='/' element={<HomePage/>}/>
       <Route path='/auth' element={<Auth/>}/>
+
       <Route element={<PrivateRoutes/>}>
-        <Route path='/home' element={<HomePage/>}/>
         <Route path='/notebook' element={<LoginNotebook/>}/>
         <Route path='/mynotes' element={<Accordion/>}/>
         <Route path='/dashboard' element={<UserDashboard/>}/>
@@ -39,6 +40,7 @@ function App() {
         <Route path='/admin/users' element={<AdminManageUsers/>}/>
         <Route path='/admin/add-data' element={<AdminAddData/>}/>
         <Route path='/admin/profile' element={<AdminProfile/>}/>
+        <Route path='/admin/knowledgehub' element={<KnowledgeHub/>}/>
       </Route>
     </Routes>
     </>

@@ -6,6 +6,8 @@
   flex: 1;
   margin-left: 5%;
   background-color: #FFFDF9;
+  /* background-color: red; */
+  height:100vh;
 }
 .admin-content{
   display: flex;

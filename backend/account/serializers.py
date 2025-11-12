@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
+from account.models import Profile
+
 
 class UserRegisterSerializer(serializers.ModelSerializer):
     confirm_password = serializers.CharField(style={'input':'password'}, write_only=True)
@@ -21,3 +23,21 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         if attrs['password'] != attrs['confirm_password']:
             raise serializers.ValidationError("Password od not match")
         return attrs
+
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = ['bio','avatar']
+
+class UserSerializer(serializers.ModelSerializer):
+    profile = ProfileSerializer()
+    date_joined = serializers.DateTimeField(format="%Y-%m-%d")
+    role = serializers.SerializerMethodField()  # dynamically generate role
+
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email', 'role', 'date_joined','profile']
+
+    def get_role(self, obj):
+        return "admin" if obj.is_staff else "user"
+
